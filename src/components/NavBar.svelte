@@ -1,6 +1,14 @@
+<script>
+    import { navigate } from 'svelte-routing'
+    function logout(){
+        localStorage.removeItem('token')
+        navigate('/', {logout: true})
+    }
+</script>
+
 <div class="container-fluid">
     <p> BEM VINDO </p>
-    <img src="https://miro.medium.com/max/640/1*aNSe9ZERfX5-Dl0wAVBOOg.png" width="100px" alt="heh"/>
+    <button on:click="{() => logout()}"> Sair </button>
 </div>
 
 <style>
@@ -18,5 +26,11 @@
         font-weight: bold;
         color: white;
         margin: 0;
+    }
+    button{
+        color: white;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
     }
 </style>
